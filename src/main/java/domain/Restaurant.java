@@ -26,7 +26,13 @@ import javax.persistence.NamedQuery;
     ,
     @NamedQuery(name = "Restaurant.getSpecificRestaurant",
             query = "SELECT r from Restaurant r "
-            + "WHERE r.name = :name")
+            + "WHERE r.name = :name"),
+    @NamedQuery(name = "Restaurant.getRestaurantRating",
+            query = "SELECT r from Restaurant r "
+                    + "WHERE r.rating = :rating"),
+    @NamedQuery(name = "Restaurant.getCheckForFoodAllergies",
+            query = "SELECT r from Restaurant r "
+                    + "WHERE r.checkForFoodAllergies = :foodallergies")
 })
 public class Restaurant implements Serializable {
 

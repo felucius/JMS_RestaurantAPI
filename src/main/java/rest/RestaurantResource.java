@@ -29,9 +29,21 @@ public class RestaurantResource {
     RestaurantService restaurantService;
 
     @GET
-    @Path("{name}")
-    public Restaurant restaurant(@PathParam("name") String name) {
+    @Path("name/{name}")
+    public List<Restaurant> restaurantName(@PathParam("name") String name) {
         return restaurantService.getRestaurant(name);
+    }
+
+    @GET
+    @Path("rating/{rating}")
+    public List<Restaurant> restaurantRating(@PathParam("rating") Integer rating) {
+        return restaurantService.getRestaurantRating(rating);
+    }
+
+    @GET
+    @Path("foodallergies/{foodallergies}")
+    public List<Restaurant> restaurantFoodAllergies(@PathParam("foodallergies") Boolean foodallergies) {
+        return restaurantService.getCheckForFoodAllergies(foodallergies);
     }
 
     @GET

@@ -39,6 +39,11 @@ public class Init {
         restaurants.add(new Restaurant("Eindhoven", "Wok"));
         restaurants.add(new Restaurant("Geldrop", "All you can eat"));
         restaurants.add(new Restaurant("Veldhoven", "Bulgarian"));
+        restaurants.add(new Restaurant("Utrecht", "Italian"));
+        restaurants.add(new Restaurant("Nijmegen", "Pizzaria"));
+        restaurants.add(new Restaurant("Nieuwegein", "Wok"));
+        restaurants.add(new Restaurant("Eindhoven", "Arabic"));
+        restaurants.add(new Restaurant("Veldhoven", "Bistro"));
 
         for (Restaurant restaurant : restaurants) {
             restaurantDAO.insertRestaurant(restaurant);

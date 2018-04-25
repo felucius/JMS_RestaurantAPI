@@ -21,12 +21,26 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 
     @PersistenceContext(name = "RestaurantAPI1PU")
     EntityManager em;
-    
+
     @Override
-    public Restaurant getRestaurant(String name) throws PersistenceException {
-        return (Restaurant) em.createNamedQuery("Restaurant.getSpecificRestaurant")
+    public List<Restaurant> getRestaurant(String name) throws PersistenceException {
+        return em.createNamedQuery("Restaurant.getSpecificRestaurant")
                 .setParameter("name", name)
-                .getSingleResult();
+                .getResultList();
+    }
+
+    @Override
+    public List<Restaurant> getRestaurantRating(Integer rating) throws PersistenceException {
+        return em.createNamedQuery("Restaurant.getRestaurantRating")
+                .setParameter("rating", rating)
+                .getResultList();
+    }
+
+    @Override
+    public List<Restaurant> getCheckForFoodAllergies(Boolean foodallergies) throws PersistenceException {
+        return em.createNamedQuery("Restaurant.getCheckForFoodAllergies")
+                .setParameter("foodallergies", foodallergies)
+                .getResultList();
     }
 
     @Override
@@ -52,5 +66,5 @@ public class RestaurantDAOImpl implements RestaurantDAO {
         em.remove(restaurant);
         return true;
     }
-    
+
 }

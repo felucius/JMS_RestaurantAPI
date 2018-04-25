@@ -15,8 +15,12 @@ import javax.persistence.PersistenceException;
  */
 public interface RestaurantDAO {
 
-    Restaurant getRestaurant(String name) throws PersistenceException;
+    List<Restaurant> getRestaurant(String name) throws PersistenceException;
 
+    List<Restaurant> getRestaurantRating(Integer rating) throws PersistenceException;
+    
+    List<Restaurant> getCheckForFoodAllergies(Boolean checkForAllergies) throws PersistenceException;
+    
     List<Restaurant> getRestaurants() throws PersistenceException;
 
     Boolean insertRestaurant(Restaurant restaurant) throws PersistenceException;
